@@ -15,5 +15,15 @@ function setCounterText(params) {
 }
 
 // event listener with a callback that increments the counter
+    // Have to add at least 2 parameters in addEventListener when calling each increment 
+        // Start w/ element, call an event listener, set click as the first parameter, then a function as the second parameter of the call
+            // Then, inside function, add a count, ++ -> count upwards 1 integer each counter
+                // then, inside function one line down, set the counter text
+incrementEl.addEventListener ("click", function name(params) {
+    
+})
+
+// Add second event listener, but add an if statement b/c it is not the first function called 
+
 
 // displays the updated count on the webpage
