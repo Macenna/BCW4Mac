@@ -21,9 +21,9 @@ typefaceEl.addEventListener("change", function(event) {
 
 textAreaEl.addEventListener("keydown", function(event) {
   var key = event.key.toLowerCase();
-  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
+  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split(""); //turns every value in the string into an index of an array - split into an array 
   if (alphabetNumericCharacters.includes(key)) {
-    elements.forEach(function(element) {
+    elements.forEach(function(element) {  //the vars called at the top into a for loop
       element.textContent += event.key;
     });
   }
@@ -32,7 +32,7 @@ textAreaEl.addEventListener("keydown", function(event) {
 clearEl.addEventListener("click", function(event) {
   event.preventDefault();
   textAreaEl.value = "";
-  elements.forEach(function(element) {
-    element.textContent = "";
+  elements.forEach(function(element) {  //for loop
+    element.textContent = ""; // empty string 
   });
 });
