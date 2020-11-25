@@ -18,12 +18,12 @@ function renderTodos() {
 
     var li = document.createElement("li");
     li.textContent = todo;
-    li.setAttribute("data-index", i);
+    li.setAttribute("data-index", i); // String and an index 
 
-    var button = document.createElement("button");
-    button.textContent = "Complete";
+    var button = document.createElement("button"); // Creating a button
+    button.textContent = "Complete";  // Button has text saying complete
 
-    li.appendChild(button);
+    li.appendChild(button); // Append list item 
     todoList.appendChild(li);
   }
 }
@@ -54,10 +54,12 @@ todoList.addEventListener("click", function(event) {
   // If that element is a button...
   if (element.matches("button") === true) {
     // Get its data-index value and remove the todo element from the list
-    var index = element.parentElement.getAttribute("data-index");
-    todos.splice(index, 1);
+    var index = element.parentElement.getAttribute("data-index"); // element.parentElement = a list item
+    todos.splice(index, 1); // Splice method removes an element from an array - () = 2 parameters, from one li to another 
 
     // Re-render the list
-    renderTodos();
+    renderTodos(); //Re-calibrates list 
   }
 });
+
+console.log(li)
