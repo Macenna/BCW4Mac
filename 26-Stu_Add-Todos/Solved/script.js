@@ -34,7 +34,7 @@ todoForm.addEventListener("submit", function(event) {
   }
 
   // Add new todoText to todos array, clear the input
-  todos.push(todoText);
+  todos.push(todoText); //Takes this text & renders it to the array 
   todoInput.value = "";
 
   // Re-render the list
