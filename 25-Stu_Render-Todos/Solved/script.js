@@ -3,7 +3,7 @@ var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
 
-var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
+var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"]; //array given
 
 renderTodos();
 
@@ -16,8 +16,8 @@ function renderTodos() {
   for (var i = 0; i < todos.length; i++) {
     var todo = todos[i];
 
-    var li = document.createElement("li");
-    li.textContent = todo;
+    var li = document.createElement("li"); // created element in for loop
+    li.textContent = todo; // for every li, text content is appended 
     todoList.appendChild(li);
   }
 }
