@@ -39,11 +39,16 @@ signUpButton.addEventListener("click", function(event) {
   } else {
     displayMessage("success", "Registered successfully");
 
+    // Checking to see the stringified user on the console
+    console.log(user); //user being sent to the back end - this is a true object 
+    var userStringified = JSON.stringify(user); //Makes everything in user key a string value - so it can be saved in the back end 
+    console.log(userStringified);
+
     // set new submission
     localStorage.setItem("user", JSON.stringify(user));
     
     // get most recent submission
-    var lastUser = JSON.parse(localStorage.getItem("user"));
+    var lastUser = JSON.parse(localStorage.getItem("user")); //Makes it an object again to pull it to the front end 
     userFirstNameSpan.textContent = lastUser.firstName;
     userLastNameSpan.textContent = lastUser.lastName;
     userEmailSpan.textContent = lastUser.email;
