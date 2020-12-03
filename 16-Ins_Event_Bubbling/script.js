@@ -29,3 +29,9 @@ function changeOrange(event) {
 outer.addEventListener("click", changeOrange);
 inner.addEventListener("click", changePurple);
 button.addEventListener("click", changeBlue);
+
+// Without the event.stopPropagation();, 
+  // clicking the innermost div button activates the event for the parent divs at the same time 
+
+// With the event.stopPropogation, 
+  // clicking the innermost div's button will not also activate the event functions for the 2 parent divs 
