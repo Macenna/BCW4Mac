@@ -1,12 +1,13 @@
 // Global elements being manipulated for carousel functionality 
-var carousel = getElementByClass(".carouselbox");       // This is the element constantly being manipulated 
-var prevBtn = getElementByClass(".prev");
-var nextBtn = getElementByClass(".next");
+var carousel = document.querySelector(".carouselbox");       // This is the element constantly being manipulated 
+var nextBtn = carousel.querySelector(".next");
+var prevBtn = carousel.querySelector(".prev");
+
 // Set div default 
 carousel.style.backgroundImage = "url('https://picsum.photos/300/200')";
 // Set index for array that will be manipulated 
 var index = 0; 
-// Create array of images to be flipped through
+// Create array of images to be flipped through - Every index of this array is an href link which leads to a photo
 var images = [
     "https://picsum.photos/300/200",
     "https://picsum.photos/300/201",
@@ -35,10 +36,26 @@ function flipThru (direction) {
         // Each time direction changes, value of imageDisplayed changes to match the value of the 'images' array index to the next/prev index
 };
 
+// Click event to listen for added to carousel element 
+carousel.addEventListener("click", function () {    // When the carousel is clicked,
+    window.location.href = images[index];           // href of the image changes to match the href link of the image currently displayed in the window 
+});
 
-//function navNext () {
-//   carousel.
-//}
+// Next element linked to call a function w/ the event parameter & flip function called locally - when next button is clicked 
+nextBtn.onclick = function(event) {
+    // Click event's default process needs to be cancelled in order for flipThru function to work 
+    event.stopPropagation();
+    // Call flip function so onclick event calls function made to loop through carousel indefinitely 
+    flipThru(1);                    // Calls flipThru function w/ argument of 1, meaning move through carousel by 1 index, forward
+};
 
-//nextBtn.carousel("next");
-//prevBtn.carousel("prev");
+// Prev element linked to click event, stops default carousel settings, calls flip function to allow photos to be indefinitely looped through, backwards
+prevBtn.addEventListener("click", function(event) {
+    // Keeps carousel from only allowing user to flip back and forth through array, allows looping through 
+    event.stopPropagation();
+    // Call function created for indefinite looping 
+    flipThru(-1);                   // Decrements through images array based on function statements 
+});
+
+flipThru(0); 
+    // Calls function at 'beginning' of carousel - gets the ball rolling!
