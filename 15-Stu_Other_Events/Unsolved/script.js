@@ -17,6 +17,7 @@ function toggleDisplay(event) {               // Select element -> toggleDisplay
 // Key down event - function - event occurs when the user is pressing a key
   // Event's code, key, and status (keydown or keyup) should be displayed in the `#key-events` div
 function keyDown (event) {                    // Parameter of this function is a key being pushed  - how is this defined tho 
+    // 2 local variables valued at the event's metadata 
   var keyPress = event.key;                   // .key -> Returns the key value of the key represented by the event - parameter calls this property/method - it's a function in itself 
   var keyCode = event.code;                   // .code -> Returns the code of the key that triggered the event
 
@@ -30,7 +31,7 @@ function keyDown (event) {                    // Parameter of this function is a
 // The key down function is important b/c it sets up all of the metadata but technically ends when user stops pushing down on keyboard 
 // The key up event function just changes the 3rd piece of metadata as user lifts hand from keyboard - this keeps the other 2 pieces of metadata as executed 
 function keyUp () {                                 // No event parameter here b/c this basically serves as a closing function to the event that just occured 
-  document.getElementById("#status").textContent = "Keyup Event";
+  document.getElementById("#status").innerHTML = "Keyup Event";
 };
 
 
@@ -38,8 +39,19 @@ function keyUp () {                                 // No event parameter here b
 function click(event) {
   // 3 local variables that are the metadata displayed on the browser for click events (defined in HTML)
   var target = event.target.textContent;              // Displays target metadata for each click event - just keeps adding info to the browser each event 
-  var x = ;
-  var y = ;
+  var x = event.clientX;                              // event.clientX => user's x coordinate of click location as browser is clicked 
+  var y = event.clientY;
 
-}
+  // DOM Manipulation to get local metadata to display on browser 
+  document.getElementById("#target").textContent = target;        // Renders metadata to the browser in span tags, individually ID'd for each piece of metadata 
+  document.getElementById("#x").textContent = x;                      // Valued as the local vars recently defined b/c those methods return the pieces of meta data to be displayed on the webpage 
+  document.getElementById("#y").textContent = y; 
+};
 
+
+// Call the document's eventListener method to attach an event handler to the document 
+    // Connect the event's function to the element it's meant to execute w/in
+document.addEventListener("keydown", keyDown);
+document.addEventListener("keyup", keyUp);
+document.addEventListener("click", click);
+eventType.addEventListener("change", toggleDisplay);
