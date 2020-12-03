@@ -51,7 +51,7 @@ function click(event) {
 
 // Call the document's eventListener method to attach an event handler to the document 
     // Connect the event's function to the element it's meant to execute w/in
-document.addEventListener("keydown", keyDown);
-document.addEventListener("keyup", keyUp);
+document.addEventListener("keydown", keyDown);      // element.addEventListener("event", function)
+document.addEventListener("keyup", keyUp);              // Each of these events is different, each function called when each event occurs returns different specified values 
 document.addEventListener("click", click);
-eventType.addEventListener("change", toggleDisplay);
+eventType.addEventListener("change", toggleDisplay);  //eventType (an element) is the menu ID from the HTML in camelcase from hyphenation 
