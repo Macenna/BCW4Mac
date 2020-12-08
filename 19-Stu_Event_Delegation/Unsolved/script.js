@@ -49,3 +49,4 @@ saveBtn.addEventListener("click", function (event){
   close();
 });
 addBtn.addEventListener("click", addPersonToList);
+// Left off here - add notes up there, code here 
